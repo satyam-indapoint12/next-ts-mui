@@ -20,14 +20,17 @@ export const Logo = styled.a<{ theme?: Theme }>`
     true &&
     css`
       color: ${theme.colors.dominant50};
-      text-shadow: 0 0 5px ${theme.colors.accent50},
-        0 0 10px ${theme.colors.accent50}, 0 0 15px ${theme.colors.accent50},
-        0 0 20px ${theme.colors.accent50}, 0 0 30px ${theme.colors.accent50},
-        0 0 40px ${theme.colors.accent50}, 0 0 55px ${theme.colors.accent50},
+      text-shadow:
+        0 0 5px ${theme.colors.accent50},
+        0 0 10px ${theme.colors.accent50},
+        0 0 15px ${theme.colors.accent50},
+        0 0 20px ${theme.colors.accent50},
+        0 0 30px ${theme.colors.accent50},
+        0 0 40px ${theme.colors.accent50},
+        0 0 55px ${theme.colors.accent50},
         0 0 75px ${theme.colors.accent50};
     `}
 `;
-
 
 export const NavBar = styled.ul<{ theme?: Theme; open: boolean }>`
   display: flex;
@@ -95,4 +98,3 @@ export const NavBar = styled.ul<{ theme?: Theme; open: boolean }>`
     }
   }
 `;
-

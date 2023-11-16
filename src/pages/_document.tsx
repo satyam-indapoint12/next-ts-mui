@@ -33,14 +33,11 @@ MyDocument.getInitialProps = async (ctx) => {
   ctx.renderPage = () =>
     originalRenderPage({
       // eslint-disable-next-line react/display-name
-      enhanceApp: (App: any) => (props) =>
-        <App {...props} />,
+      enhanceApp: (App: any) => (props) => <App {...props} />,
     });
   const initialProps = await Document.getInitialProps(ctx);
   return {
     ...initialProps,
-    styles: [
-      ...React.Children.toArray(initialProps.styles),
-    ],
+    styles: [...React.Children.toArray(initialProps.styles)],
   };
 };

@@ -1,8 +1,6 @@
-"use client"
+'use client';
 import { createTheme } from '@mui/material/styles';
 import { TypographyOptions } from '@mui/material/styles/createTypography';
-
-
 
 export const lightColors = {
   dominant: '#FFFDFA',
@@ -20,8 +18,6 @@ export type ColorType = keyof typeof lightColors;
 const typography: TypographyOptions = {
   fontFamily: ['Roboto', 'sans-serif'].join(','),
 };
-
-
 
 export const lightTheme = createTheme({
   typography,

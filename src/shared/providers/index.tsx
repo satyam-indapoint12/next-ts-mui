@@ -1,17 +1,15 @@
-
-"use client"
-import CustomErrorBoundary  from "./error-boundary";
-import { Suspense } from "./suspense";
-import Toastify from "./toastify";
-import { FC } from "react";
-
+import * as React from 'react';
+import CustomErrorBoundary from './error-boundary';
+import { Suspense } from './suspense';
+import Toastify from './toastify';
+import { FC } from 'react';
 
 export const AppProvider: FC<any> = ({ children }) => {
   return (
-    <CustomErrorBoundary >
+    <CustomErrorBoundary fallbackRender={() => null}>
       <Suspense>
-          <Toastify />
-            {children}
+        <Toastify />
+        {children}
       </Suspense>
     </CustomErrorBoundary>
   );

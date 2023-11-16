@@ -1,6 +1,5 @@
 import moment from 'moment-timezone';
-import getSymbolFromCurrency from 'currency-symbol-map'
-
+import getSymbolFromCurrency from 'currency-symbol-map';
 
 // export const currentTime = (currentTiming) => {
 //     //const zone = "America/Mexico_city"  // set Mexico timezone
@@ -9,17 +8,28 @@ import getSymbolFromCurrency from 'currency-symbol-map'
 //     currentTime = moment(currentTime,'HH:mm')
 // }
 
+export const convertUtcToIst = (
+  utcDateTime: any,
+  format = 'YYYY-MM-DD HH:mm:ss'
+) => {
+  return moment.utc(utcDateTime).utcOffset('+05:30').format(format);
+};
 
-export const convertUtcToIst = (utcDateTime: any,format = 'YYYY-MM-DD HH:mm:ss') => {
-    return moment.utc(utcDateTime).utcOffset('+05:30').format(format);
+// Function to convert IST to UTC
+export const convertIstToUtc = (
+  istDateTime: any,
+  format = 'YYYY-MM-DD HH:mm:ss'
+) => {
+  return moment(istDateTime).utc().format(format);
 };
-  
-  // Function to convert IST to UTC
-export const convertIstToUtc = (istDateTime: any, format = 'YYYY-MM-DD HH:mm:ss') => {
-    return moment(istDateTime).utc().format(format);
+
+export const priceWithCurrency = (
+  price: string,
+  symbol = 'USD',
+  prefix = true
+) => {
+  // For check symbol use console.log(currencyToSymbolMap)
+  return prefix
+    ? `${getSymbolFromCurrency(symbol)}${price}`
+    : `${price}${getSymbolFromCurrency(symbol)}`;
 };
-  
-export const priceWithCurrency = (price: string, symbol = 'USD', prefix = true) =>{
-    // For check symbol use console.log(currencyToSymbolMap)
-    return prefix ? `${getSymbolFromCurrency(symbol)}${price}` : `${price}${getSymbolFromCurrency(symbol)}`
-}

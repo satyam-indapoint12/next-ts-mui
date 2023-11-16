@@ -1,17 +1,16 @@
-import type { NextPage } from 'next'
-import Image from 'next/image'
+import * as React from 'react';
+import type { NextPage } from 'next';
+import Image from 'next/image';
 
 const ProgressiveImage: NextPage = (props: any) => {
-
-  const { src, alt, width, height  } = props;
+  const { src, alt, width, height } = props;
   return (
-
     <div className="relative w-[500px] h-[300px]">
       <Image
         src={src}
         layout="responsive"
-        width={width || 200}  
-        height={height || 300} 
+        width={width || 200}
+        height={height || 300}
         sizes="100vw"
         style={{
           objectFit: 'cover',
@@ -20,13 +19,7 @@ const ProgressiveImage: NextPage = (props: any) => {
         loading="eager"
       />
     </div>
-  )
-}
+  );
+};
 
-
-
-
-
-
-
-export default ProgressiveImage
+export default ProgressiveImage;
