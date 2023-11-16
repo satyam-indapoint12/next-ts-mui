@@ -5,7 +5,6 @@ import { convertIstToUtc, priceWithCurrency } from '../../utilities/helper';
 
 const Home = (props: any) => {
   const { title, description, image, price } = props;
-  console.log('fsafdsa');
   return (
     <Container sx={{ py: 8 }} maxWidth="md">
       <Grid container spacing={4}>
