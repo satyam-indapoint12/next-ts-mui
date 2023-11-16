@@ -3,10 +3,18 @@
         "browser": true,
         "es2021": true
     },
+    
+    "settings": {
+        "react": {
+        "version": "detect"
+        }
+    },
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "prettier"
+        
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -15,9 +23,21 @@
     },
     "plugins": [
         "@typescript-eslint",
-        "react"
+        "react",
+        "prettier"
+
     ],
     "rules": {
-        "@typescript-eslint/no-explicit-any": "off"
+        "no-console": "warn",
+        "no-debugger": "warn",
+        "no-alert": "warn",
+        "no-unused-vars": "off", // Handled by @typescript-eslint/no-unused-vars
+        "no-undef": "error",
+        "no-extra-semi": "error",
+        "semi": ["error", "always"],
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-unused-vars": "error",
+        "prettier/prettier": "warn"
+
     }
 }
