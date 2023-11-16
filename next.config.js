@@ -1,31 +1,24 @@
+// @ts-check
+const { i18n } = require('./next-i18next.config.js')
+
+// You can remove the following 2 lines when integrating our example.
+const { loadCustomBuildParams } = require('./next-utils.config')
+const { esmExternals = false, tsconfigPath } =
+  loadCustomBuildParams()
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    esmExternals, // https://nextjs.org/blog/next-11-1#es-modules-support
+  },
+  i18n,
   reactStrictMode: true,
-  swcMinify: true,
-  future: {
-    webpack5: true,
-  },
-  webpack: (config) => {
-    // load worker files as a urls with `file-loader`
-    config.module.rules.unshift({
-      test: /pdf\.worker\.(min\.)?js/,
-      use: [
-        {
-          loader: 'file-loader',
-          options: {
-            name: '[contenthash].[ext]',
-            publicPath: '_next/static/worker',
-            outputPath: 'static/worker',
-          },
-        },
-      ],
-    });
-
-    return config;
-  },
   images: {
-    domains: ['res.cloudinary.com'],
+    domains: ["user-images.githubusercontent.com" ]
   },
-};
+  typescript: {
+    tsconfigPath,
+  },
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

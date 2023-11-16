@@ -1,13 +1,8 @@
+"use client"
 import { createTheme } from '@mui/material/styles';
 import { TypographyOptions } from '@mui/material/styles/createTypography';
 
-export const darkColors = {
-  dominant: '#000205',
-  dominant50: '#303133',
-  accent: '#F6F8FA',
-  accent50: '#F4FAFF',
-  compliment: '#78FAC6',
-};
+
 
 export const lightColors = {
   dominant: '#FFFDFA',
@@ -17,30 +12,16 @@ export const lightColors = {
   compliment: '#BCA987',
 };
 
-export type ColorsInterface = typeof darkColors;
+export type ColorsInterface = typeof lightColors;
 
 // 👇️ type Keys = "name" | "age" | "country"
-export type ColorType = keyof typeof darkColors;
+export type ColorType = keyof typeof lightColors;
 
 const typography: TypographyOptions = {
   fontFamily: ['Roboto', 'sans-serif'].join(','),
 };
 
-export const darkTheme = createTheme({
-  typography,
-  colors: darkColors,
-  components: {
-    MuiCssBaseline: {
-      styleOverrides: {
-        body: {
-          color: darkColors.accent50,
-          backgroundColor: darkColors.dominant,
-          position: 'relative',
-        },
-      },
-    },
-  },
-});
+
 
 export const lightTheme = createTheme({
   typography,
