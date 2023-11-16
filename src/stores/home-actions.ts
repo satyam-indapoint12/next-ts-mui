@@ -1,4 +1,4 @@
-import ROUTES from "src/utilities/api-routes";
+import ROUTES from "../utilities/api-routes";
 import api from "../services/api"
 
 import { useHomeStore } from "./home-store"
