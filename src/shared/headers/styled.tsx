@@ -1,6 +1,5 @@
-import styled from '@emotion/styled';
-import { css } from '@emotion/react';
 import { Box, Theme } from '@mui/material';
+import styled from 'styled-components';
 
 export const HeaderStyled = styled(Box)<{ theme?: Theme }>`
   height: 100px;
@@ -15,21 +14,7 @@ export const Logo = styled.a<{ theme?: Theme }>`
   font-weight: bolder;
   cursor: pointer;
   display: block;
-
-  ${({ theme }) =>
-    true &&
-    css`
-      color: ${theme.colors.dominant50};
-      text-shadow:
-        0 0 5px ${theme.colors.accent50},
-        0 0 10px ${theme.colors.accent50},
-        0 0 15px ${theme.colors.accent50},
-        0 0 20px ${theme.colors.accent50},
-        0 0 30px ${theme.colors.accent50},
-        0 0 40px ${theme.colors.accent50},
-        0 0 55px ${theme.colors.accent50},
-        0 0 75px ${theme.colors.accent50};
-    `}
+  color: ${(props) => props.theme.colors.dominant50};
 `;
 
 export const NavBar = styled.ul<{ theme?: Theme; open: boolean }>`
@@ -69,11 +54,6 @@ export const NavBar = styled.ul<{ theme?: Theme; open: boolean }>`
     transform: translatex(-100%);
     transition: all 0.3s ease-in-out;
 
-    ${({ open }) =>
-      open &&
-      css`
-        transform: translatex(0%);
-      `}
     .link {
       margin-left: 0px;
       width: 100%;
