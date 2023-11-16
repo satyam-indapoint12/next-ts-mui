@@ -14,12 +14,12 @@
     "lint": "eslint src --ext .ts,.tsx --fix"
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": "yarn run lint:fix"
+    "src/**/*.{ts,tsx}": "yarn run lint:fix"
   },
   "husky": {
-      "hooks": {
-        "pre-commit": "lint-staged"
-      }
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "browser": {
     "fs": false,
