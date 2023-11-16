@@ -11,16 +11,16 @@
     "dev": "concurrently --kill-others \"npm run development\" \"npm run json-server\"",
     "start": "concurrently --kill-others \"npm run start-server\" \"npm run json-server\"",
     "prepare": "husky install",
-    "lint": "eslint src --ext .ts,.tsx"
+    "lint": "eslint src --ext .ts,.tsx --fix"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": "yarn run lint:fix"
- },
- "husky": {
-  "hooks": {
-    "pre-commit": "lint-staged"
-  }
-},
+    "**/*.{ts,tsx}": "yarn run lint:fix"
+  },
+  "husky": {
+      "hooks": {
+        "pre-commit": "lint-staged"
+      }
+  },
   "browser": {
     "fs": false,
     "child_process": false
